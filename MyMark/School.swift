@@ -24,6 +24,16 @@ class School {
         self.phoneNumber = phoneNumber
         self.group = group
         self.intro = intro
-        
+    }
+    
+    func toListPropertiesString() -> [String]{
+        var listProperties: [String] = []
+        listProperties.append(name)
+        listProperties.append(address)
+        listProperties.append(phoneNumber)
+        listProperties.append(group)
+        listProperties.append(intro)
+        listProperties.append(imagePath)
+        return listProperties
     }
 }

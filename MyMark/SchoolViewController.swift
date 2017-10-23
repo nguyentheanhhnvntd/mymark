@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SchoolViewController: UIViewController {
-
+class SchoolViewController: MyViewController {
+    
     @IBOutlet weak var intro: UILabel!
     @IBOutlet weak var group: UILabel!
     @IBOutlet weak var phone: UILabel!
@@ -23,6 +23,14 @@ class SchoolViewController: UIViewController {
         super.viewDidLoad()
         school = FileIO.readSchool()
         setInfoToView()
+        backgroundTaskStart()
+        FirebaseDataService.save(object: school) { [weak self]
+            (errorMessage) in
+            self?.backgroundTaskStop()
+            if errorMessage != nil {
+                self?.showAlert(errorMessage!)
+            }
+        }
     }
     
     func setInfoToView() {
@@ -33,5 +41,5 @@ class SchoolViewController: UIViewController {
         group.text = school.group
         intro.text = school.intro
     }
-
+    
 }

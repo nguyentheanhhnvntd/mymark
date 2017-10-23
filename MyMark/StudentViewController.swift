@@ -8,8 +8,8 @@
 
 import UIKit
 
-class StudentViewController: UIViewController {
-
+class StudentViewController: MyViewController {
+    
     @IBOutlet weak var averagePoint: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -25,12 +25,21 @@ class StudentViewController: UIViewController {
         super.viewDidLoad()
         student = FileIO.readStudent()
         setInfoToView()
+        backgroundTaskStart()
+        FirebaseDataService.save(object: student) {
+            [weak self]
+            (message) in
+            self?.backgroundTaskStop()
+            if message != nil {
+                self?.showAlert(message!)
+            }
+        }
     }
     
     func setInfoToView() {
         let imageX = UIImage(named: "stui.jpg")
         image = UIImageView(image: imageX)
-    
+        
         name.text = student.name
         
         let dob = DateFormatter.localizedString(from: student.DoB, dateStyle: .medium, timeStyle: .none)

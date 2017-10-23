@@ -36,6 +36,7 @@ class SubjectTableViewController: UIViewController, UITableViewDataSource, UITab
         showSubjects = allSubjects
         for subject in allSubjects {
             listResultName.append(subject.name)
+//            FirebaseDataService.saveSubject(subject: subject)
         }
     }
     
@@ -85,10 +86,6 @@ class SubjectTableViewController: UIViewController, UITableViewDataSource, UITab
         showSubjects = allSubjects.filter({resultName.contains($0.name)})
         tableView.reloadData()
     }
-    
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return UITableViewAutomaticDimension
-    //    }
     
     // MARK: - Table view data source
     

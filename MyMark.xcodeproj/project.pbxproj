@@ -31,8 +31,8 @@
 		CF96C34C1F9866C400934B4F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF96C34B1F9866C400934B4F /* GoogleService-Info.plist */; };
 		CF96C34E1F9873D500934B4F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF96C34D1F9873D500934B4F /* Login.storyboard */; };
 		CF96C3501F988A3000934B4F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96C34F1F988A3000934B4F /* SignInViewController.swift */; };
-		CF9F7E891F99D25A00D01702 /* FirebaseAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F7E881F99D25A00D01702 /* FirebaseAccountManager.swift */; };
-		CF9F7E8B1F99D27500D01702 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F7E8A1F99D27500D01702 /* FirebaseData.swift */; };
+		CF9F7E891F99D25A00D01702 /* FirebaseAccountManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F7E881F99D25A00D01702 /* FirebaseAccountManagerService.swift */; };
+		CF9F7E8B1F99D27500D01702 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9F7E8A1F99D27500D01702 /* FirebaseDataService.swift */; };
 		CFAC0A731F9399EC000E1AA5 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAC0A721F9399EC000E1AA5 /* SubjectTableViewCell.swift */; };
 		CFAC0A751F939FD8000E1AA5 /* SubjectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAC0A741F939FD8000E1AA5 /* SubjectTableViewController.swift */; };
 		CFAD12E21F9735F7006E36A4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAD12E11F9735F7006E36A4 /* Util.swift */; };
@@ -92,8 +92,8 @@
 		CF96C34B1F9866C400934B4F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CF96C34D1F9873D500934B4F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		CF96C34F1F988A3000934B4F /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		CF9F7E881F99D25A00D01702 /* FirebaseAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAccountManager.swift; sourceTree = "<group>"; };
-		CF9F7E8A1F99D27500D01702 /* FirebaseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		CF9F7E881F99D25A00D01702 /* FirebaseAccountManagerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAccountManagerService.swift; sourceTree = "<group>"; };
+		CF9F7E8A1F99D27500D01702 /* FirebaseDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
 		CFAC0A721F9399EC000E1AA5 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
 		CFAC0A741F939FD8000E1AA5 /* SubjectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTableViewController.swift; sourceTree = "<group>"; };
 		CFAD12E11F9735F7006E36A4 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -173,10 +173,8 @@
 			children = (
 				CF1B37051F95DDAD008443F2 /* SupportFiles */,
 				CF9F7E871F99D21E00D01702 /* FireBaseAPI */,
-				CF96C34B1F9866C400934B4F /* GoogleService-Info.plist */,
 				CFAD12E31F973601006E36A4 /* Util */,
 				CF1B37061F95E0D4008443F2 /* DataFiles */,
-				CFAC0A721F9399EC000E1AA5 /* SubjectTableViewCell.swift */,
 				CF1B37091F95E16F008443F2 /* FileIO */,
 				CFB815FD1F9BC96B0052A30B /* AccountViewControllers */,
 				CF1B37041F95DD57008443F2 /* FunctionControllers */,
@@ -184,6 +182,7 @@
 				CF96C34D1F9873D500934B4F /* Login.storyboard */,
 				CF0ED7581F93425D00AB0B04 /* Main.storyboard */,
 				CF91C8381F9CE65700141DE3 /* MyViewController.swift */,
+				CFAC0A721F9399EC000E1AA5 /* SubjectTableViewCell.swift */,
 			);
 			path = MyMark;
 			sourceTree = "<group>";
@@ -224,6 +223,7 @@
 				CF0ED75B1F93425D00AB0B04 /* Assets.xcassets */,
 				CF0ED75D1F93425D00AB0B04 /* LaunchScreen.storyboard */,
 				CF0ED7601F93425D00AB0B04 /* Info.plist */,
+				CF96C34B1F9866C400934B4F /* GoogleService-Info.plist */,
 			);
 			name = SupportFiles;
 			sourceTree = "<group>";
@@ -263,8 +263,8 @@
 		CF9F7E871F99D21E00D01702 /* FireBaseAPI */ = {
 			isa = PBXGroup;
 			children = (
-				CF9F7E881F99D25A00D01702 /* FirebaseAccountManager.swift */,
-				CF9F7E8A1F99D27500D01702 /* FirebaseData.swift */,
+				CF9F7E881F99D25A00D01702 /* FirebaseAccountManagerService.swift */,
+				CF9F7E8A1F99D27500D01702 /* FirebaseDataService.swift */,
 			);
 			name = FireBaseAPI;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 				CF1B370D1F95E26F008443F2 /* Student.swift in Sources */,
 				CF3A04801F949FD0000AF9B1 /* SubjectInfoDialog.swift in Sources */,
 				CF53FEA51F9B2723006E067A /* RegisterViewController.swift in Sources */,
-				CF9F7E8B1F99D27500D01702 /* FirebaseData.swift in Sources */,
+				CF9F7E8B1F99D27500D01702 /* FirebaseDataService.swift in Sources */,
 				CFAD12E21F9735F7006E36A4 /* Util.swift in Sources */,
 				CF1B37031F95B510008443F2 /* Point.swift in Sources */,
 				CFB815FC1F9BC9630052A30B /* ResetPasswordViewController.swift in Sources */,
@@ -516,7 +516,7 @@
 				CF0ED7511F93425D00AB0B04 /* AppDelegate.swift in Sources */,
 				CFC5A81D1F96335C00C82895 /* StudentViewController.swift in Sources */,
 				CF91C8391F9CE65700141DE3 /* MyViewController.swift in Sources */,
-				CF9F7E891F99D25A00D01702 /* FirebaseAccountManager.swift in Sources */,
+				CF9F7E891F99D25A00D01702 /* FirebaseAccountManagerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

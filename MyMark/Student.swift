@@ -28,4 +28,19 @@ class Student {
         self.phoneNumber = phoneNumber
         self.averagePoint = averagePoint
     }
+    
+    func toListPropertiesString() -> [String] {
+        var list: [String] = []
+        list.append(name)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        list.append(dateFormatter.string(from: DoB))
+        list.append(className)
+        list.append(String(schoolYear))
+        list.append(address)
+        list.append(phoneNumber)
+        list.append(String(averagePoint))
+        list.append(imagePath)
+        return list
+    }
 }

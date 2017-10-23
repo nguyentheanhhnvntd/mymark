@@ -4,6 +4,7 @@
 target 'MyMark' do
     use_frameworks!
 
+    pod 'Firebase/Storage'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'GoogleSignIn'

@@ -48,7 +48,7 @@ class SignInViewController: MyViewController {
             return
         }
         backgroundTaskStart()
-        FirebaseAccountManager.signIn(id: email, password: password) { [weak self] (message, id) in
+        FirebaseAccountManagerService.signIn(id: email, password: password) { [weak self] (message, id) in
             self?.backgroundTaskStop()
             if (id != nil) {
                 self?.signIn()

@@ -52,12 +52,12 @@ class RegisterViewController: MyViewController {
         
         backgroundTaskStart()
         
-        FirebaseAccountManager.register(email: email, password: password) { [weak self] (message) in
+        FirebaseAccountManagerService.register(email: email, password: password) { [weak self] (message) in
             self?.backgroundTaskStop()
             if message != nil {
                 self?.showAlert(message!)
             } else {
-                FirebaseAccountManager.sendEmailVerification(completion: { (error) in
+                FirebaseAccountManagerService.sendEmailVerification(completion: { (error) in
                     if error != nil {
                         self?.backVC.message = error!.localizedDescription
                     }else {

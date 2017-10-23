@@ -9,39 +9,14 @@
 import Foundation
 import FirebaseAuth
 
-class FirebaseAccountManager {
+class FirebaseAccountManagerService {
     
     static func sendEmailVerification(completion: @escaping (_ error: Error?) -> Void) {
-        /** @fn sendEmailVerificationWithCompletion:
-         @brief Initiates email verification for the user.
-         
-         @param completion Optionally; the block invoked when the request to send an email verification
-         is complete, or fails. Invoked asynchronously on the main thread in the future.
-         
-         @remarks Possible error codes:
-         <ul>
-         <li>@c FIRAuthErrorCodeInvalidRecipientEmail - Indicates an invalid recipient email was
-         sent in the request.
-         </li>
-         <li>@c FIRAuthErrorCodeInvalidSender - Indicates an invalid sender email is set in
-         the console for this action.
-         </li>
-         <li>@c FIRAuthErrorCodeInvalidMessagePayload - Indicates an invalid email template for
-         sending update email.
-         </li>
-         <li>@c FIRAuthErrorCodeUserNotFound - Indicates the user account was not found.</li>
-         </ul>
-         
-         @remarks See @c FIRAuthErrors for a list of error codes that are common to all FIRUser methods.
-         */
-        
-        
         Auth.auth().currentUser?.sendEmailVerification { (error) in
             if error != nil {
                 completion(error)
             }
         }
-        
         completion(nil)
     }
     
